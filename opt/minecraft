@@ -8,8 +8,10 @@ if [ -z "$NGROK_API_TOKEN" ]; then
   exit 1
 fi
 
+# Set the auth token into the config file, V2 of ngrok
+bin/ngrok authtoken $NGROK_API_TOKEN
 # Start the TCP tunnel
-ngrok_cmd="bin/ngrok -authtoken $NGROK_API_TOKEN -log stdout ${NGROK_OPTS} -proto=tcp ${mc_port}"
+ngrok_cmd="bin/ngrok ${NGROK_OPTS} tcp ${mc_port}"
 echo "Starting ngrok..."
 eval "$ngrok_cmd > ngrok.log &"
 ngrok_pid=$!
