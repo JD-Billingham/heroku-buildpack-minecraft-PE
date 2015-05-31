@@ -10,6 +10,7 @@ BP_DIR="$(cd "$(dirname "$0")" && pwd)"
 BUILD_DIR=$1
 CACHE_DIR=$2
 OPT_DIR=$BP_DIR/../opt/
+mkdir -p $BUILD_DIR/bin
 
 APT_CACHE_DIR="$CACHE_DIR/apt/cache"
 APT_STATE_DIR="$CACHE_DIR/apt/state"
@@ -38,14 +39,13 @@ done
 
 echo -n "-----> Installing ngrok... "
 curl --silent -o ngrok_2.0.17_linux_amd64.zip -L "https://dl.ngrok.com/ngrok_2.0.17_linux_amd64.zip" | indent
-unzip ngrok_2.0.17_linux_amd64.zip -d $BUILD_DIR
+unzip ngrok_2.0.17_linux_amd64.zip -d $BUILD_DIR/bin/
 echo "done"
 
 echo -n "-----> Installing Minecraft PE Server "
 cd $BUILD_DIR
 wget -q -O - http://get.pocketmine.net/ | bash
 
-mkdir -p $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/minecraft ]   && cp $OPT_DIR/minecraft $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/sync ]        && cp $OPT_DIR/sync $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/ngrok ]        && cp $OPT_DIR/ngrok $BUILD_DIR/bin
