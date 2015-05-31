@@ -44,8 +44,8 @@ curl --silent -o ngrok_2.0.17_linux_amd64.zip -L "https://dl.ngrok.com/ngrok_2.0
 unzip ngrok_2.0.17_linux_amd64.zip -d $BUILD_DIR/bin/
 echo "done"
 
-echo -n "-----> Installing Minecraft PE Server "
-wget -q -O - http://get.pocketmine.net/ | bash
+#echo -n "-----> Installing Minecraft PE Server "
+#wget -q -O - http://get.pocketmine.net/ | bash
 
 [ ! -f $BUILD_DIR/minecraft ]   && cp $OPT_DIR/minecraft $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/sync ]        && cp $OPT_DIR/sync $BUILD_DIR/bin
@@ -53,4 +53,3 @@ wget -q -O - http://get.pocketmine.net/ | bash
 
 chmod +x $BUILD_DIR/bin/minecraft
 chmod +x $BUILD_DIR/bin/sync
-chmod +x $BUILD_DIR/bin/ngrok
