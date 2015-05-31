@@ -26,7 +26,39 @@ eval "while true; do sleep ${AWS_SYNC_INTERVAL:-60}; bin/sync; done &"
 sync_pid=$!
 
 # create server config
-# TODO
+# Server.properties - change as you require... 
+cat > server.properties << EOF
+#Properties Config file
+#Sun May 31 22:32:00 BST 2015
+server-name=minecraft
+server-port=19132
+memory-limit=256M
+gamemode=0
+max-players=20
+spawn-protection=16
+white-list=off
+enable-query=on
+enable-rcon=off
+motd=Minecraft: PE Server
+announce-player-achievements=on
+allow-flight=off
+spawn-animals=on
+spawn-mobs=on
+force-gamemode=off
+hardcore=off
+pvp=on
+difficulty=1
+generator-settings=
+level-name=world
+level-seed=
+level-type=DEFAULT
+rcon.password=i6r8sp/F/s
+auto-save=on
+EOF
+
+# TODO: Change to a defined id
+echo "server-admin" > ops.txt
+
 
 echo "Starting: minecraft-PE ${mc_port}"
 eval "./start.sh &"
