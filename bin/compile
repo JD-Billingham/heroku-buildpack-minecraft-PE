@@ -38,9 +38,7 @@ done
 
 echo -n "-----> Installing ngrok... "
 curl --silent -o ngrok_2.0.17_linux_amd64.zip -L "https://dl.ngrok.com/ngrok_2.0.17_linux_amd64.zip" | indent
-unzip ngrok_2.0.17_linux_amd64.zip 
-ls -lrt ngrok_2.0.17_linux_amd64.zip
-ls -lrt ngrok
+unzip ngrok_2.0.17_linux_amd64.zip -d $BUILD_DIR
 echo "done"
 
 echo -n "-----> Installing Minecraft PE Server "
