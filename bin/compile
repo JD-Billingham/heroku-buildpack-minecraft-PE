@@ -38,14 +38,14 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
 done
 
 cd $BUILD_DIR
-pwd
+echo -n "-----> Installing Minecraft PE Server "
+wget -q -O - http://get.pocketmine.net/ | bash
+
 echo -n "-----> Installing ngrok... "
 curl --silent -o ngrok_2.0.17_linux_amd64.zip -L "https://dl.ngrok.com/ngrok_2.0.17_linux_amd64.zip" | indent
 unzip ngrok_2.0.17_linux_amd64.zip -d $BUILD_DIR/bin/
+rm ngrok_2.0.17_linux_amd64.zip
 echo "done"
-
-#echo -n "-----> Installing Minecraft PE Server "
-#wget -q -O - http://get.pocketmine.net/ | bash
 
 [ ! -f $BUILD_DIR/minecraft ]   && cp $OPT_DIR/minecraft $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/sync ]        && cp $OPT_DIR/sync $BUILD_DIR/bin
