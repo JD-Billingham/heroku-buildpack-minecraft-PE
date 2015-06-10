@@ -1,4 +1,4 @@
-# Heroku Minecraft Buildpack
+# Heroku Minecraft Buildpack (On hold until ngrok supports tunnelling UDP, if ever! No way of getting this to work in Heroku until it, or something else, supports this) 
 
 This is a [Heroku Buildpack](https://devcenter.heroku.com/articles/buildpacks)
 for running a Minecraft server in a [dyno](https://devcenter.heroku.com/articles/dynos).
